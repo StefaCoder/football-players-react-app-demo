@@ -5,9 +5,53 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F8F7FF;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.linksContainer {
+  display: flex;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  box-shadow:0px 2px rgb(154, 152, 152);
+}
+
+.navbarTitle{
+  color: black;
+  float: left;
+}
+
+.homeContainer {
+  height: auto;
+  display: flex;
+}
+
+.playersContainer {
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.playerCardContainer {
+  width: 250px;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 1px 2px 3px 2px rgb(154, 152, 152);
+  background-color: slategray;
+}
+
+.btnDelete {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 2px 10px;
+  cursor: pointer;
 }
