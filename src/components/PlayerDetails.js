@@ -3,6 +3,7 @@ const PlayerDetails = ( {players, player} ) => {
 
     return(
         <div className="playerCardContainer">
+            <p className="playerID">{player.playerID}</p>
             <p><strong>Name:</strong> {player.name}</p>
             <p><strong>Last Name:</strong> {player.lastName}</p>
             <p><strong>Age:</strong> {player.age}</p>
