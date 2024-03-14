@@ -66,6 +66,7 @@ code {
 }
 
 .playerFormContainer {
+  flex-direction: column;
   width: 300px;
   height: 320px;
   display: flex;
@@ -80,6 +81,7 @@ code {
   display: flex;
   flex-direction: column;
   margin: auto;
+  margin-bottom: 10px;
 }
 
 label {
@@ -120,4 +122,13 @@ input {
   border-radius: 3px;
   box-shadow: 1px 2px 3px 2px rgb(154, 152, 152);
   cursor: pointer;
+}
+
+.validationErrorDiv{
+  margin: 15px;
+  border: 1.5px dotted red;
+  background-color: rgb(240, 171, 171);
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 1px 2px 3px 2px rgb(154, 152, 152);
 }

@@ -9,23 +9,27 @@ const CreatePlayerForm = () => {
     const [role, setRole] = useState('')
     const [value, setValue] = useState('')
     const [error, setError] = useState(null)
+    const [validationError, setValidationError] = useState("")
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const player = { name, lastName, age, role, value }
 
-        const response = await axios.post(`${process.env.ADD_PLAYER_API_URL}`, player)
+        if (inputValidation()) {
+            const player = { name, lastName, age, role, value }
 
-        if (!response.ok) {
-            setError('An error has occurred:', response.data.error)
-        }
+            const response = await axios.post(`${process.env.ADD_PLAYER_API_URL}`, player)
 
-        if (response.ok) {
-            console.log('Player added successfully')
+            if (!response.ok) {
+                setError('An error has occurred')
+            }
+
+            if (response.ok) {
+                console.log('Player added successfully')
+            }
         }
     }
 
-    const handleReset =(e) => {
+    const handleReset = (e) => {
         e.preventDefault()
         setName('')
         setLastName('')
@@ -33,6 +37,22 @@ const CreatePlayerForm = () => {
         setRole('')
         setValue('')
         setError(null)
+        setValidationError('')
+    }
+
+    const inputValidation = () => {
+        let errMsg = ''
+
+        if (name === '' || lastName === '' || age === '' || role === '' || value === '') {
+            errMsg += 'Please, No empty fields!'
+            setValidationError(errMsg)
+        }
+        
+        if (errMsg !== '') {
+            return false
+        } else {
+            return true
+        }
     }
 
 
@@ -70,6 +90,7 @@ const CreatePlayerForm = () => {
                     <button className="btnReset" onClick={handleReset}>Reset</button>
                 </div>
             </form>
+            {validationError && <div className="validationErrorDiv">{validationError}</div>}
         </div>
     )
 }
