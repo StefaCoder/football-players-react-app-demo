@@ -1,6 +1,8 @@
 import axios from "axios"
-import { useState } from "react"
+import { useContext, useState } from "react"
+import PlayerDataContext from "../context/PlayerContext"
 require('dotenv').config()
+
 
 const CreatePlayerForm = () => {
     const [name, setName] = useState('')
@@ -8,8 +10,10 @@ const CreatePlayerForm = () => {
     const [age, setAge] = useState('')
     const [role, setRole] = useState('')
     const [value, setValue] = useState('')
-    const [error, setError] = useState(null)
-    const [validationError, setValidationError] = useState("")
+    const [error, setError] = useState('')
+    const [validationError, setValidationError] = useState('')
+
+    const fetchAllPlayers = useContext(PlayerDataContext)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -17,26 +21,26 @@ const CreatePlayerForm = () => {
         if (inputValidation()) {
             const player = { name, lastName, age, role, value }
 
-            const response = await axios.post(`${process.env.ADD_PLAYER_API_URL}`, player)
+            try{
+                const response = await axios.post(`${process.env.ADD_PLAYER_API_URL}`, player)
+            console.log('Player added successfully: ', response.data)
+            fetchAllPlayers()
 
-            if (!response.ok) {
-                setError('An error has occurred')
-            }
-
-            if (response.ok) {
-                console.log('Player added successfully')
+            }catch (error) {
+                console.error('The following error has occurred: ', error.message)
+                setError("Add request failed: " + error.message)
             }
         }
     }
 
     const handleReset = (e) => {
-        e.preventDefault()
+        e.preventDefault() 
         setName('')
         setLastName('')
         setAge('')
         setRole('')
         setValue('')
-        setError(null)
+        setError('')
         setValidationError('')
     }
 
@@ -90,7 +94,8 @@ const CreatePlayerForm = () => {
                     <button className="btnReset" onClick={handleReset}>Reset</button>
                 </div>
             </form>
-            {validationError && <div className="validationErrorDiv">{validationError}</div>}
+            {validationError && <div className="errorDiv">{validationError}</div>}
+            {error && <div className="errorDiv">{error}</div>}
         </div>
     )
 }
