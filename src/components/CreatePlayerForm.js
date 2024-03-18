@@ -23,13 +23,14 @@ const CreatePlayerForm = () => {
 
             try{
                 const response = await axios.post(`${process.env.ADD_PLAYER_API_URL}`, player)
-            console.log('Player added successfully: ', response.data)
-            fetchAllPlayers()
+                console.log('Player added successfully: ', response.data)
+                fetchAllPlayers()
 
             }catch (error) {
                 console.error('The following error has occurred: ', error.message)
                 setError("Add request failed: " + error.message)
             }
+            handleReset(e)
         }
     }
 

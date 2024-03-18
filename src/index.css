@@ -142,3 +142,14 @@ input {
   box-shadow: 1px 2px 3px 2px rgb(154, 152, 152);
   height: 20px;
 }
+
+.delErrMsgDiv{
+  margin-top: -150px;
+  border: 1.5px dotted red;
+  background-color: rgb(240, 171, 171);
+  border-radius: 5px;
+  height: 35px;
+  width: 250px;
+  position: absolute;
+  cursor: pointer;
+}
