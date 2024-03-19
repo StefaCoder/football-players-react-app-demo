@@ -9,7 +9,6 @@ const Navbar = () => {
                     <h1 className="navbarTitle">Football Players Demo</h1>
                 </Link>
             </div>
-
         </header>
     )
 }

@@ -30,6 +30,22 @@ code {
   display: flex;
 }
 
+.deleteAllMsgs {
+  display: flex;
+  justify-content: center;
+}
+
+.btnDelAll {
+  padding: 10px 30px;
+  background-color: rgb(250, 8, 4);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1px solid black;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
 .playersContainer {
   width: 80%;
   display: flex;
@@ -151,5 +167,29 @@ input {
   height: 35px;
   width: 250px;
   position: absolute;
+  cursor: pointer;
+}
+
+.delAllMsgDiv {
+  width: 260px;
+  height: 35px;
+  margin: 15px;
+  border: 1.5px dotted red;
+  background-color: rgb(240, 171, 171);
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 1px 2px 3px 2px rgb(154, 152, 152);
+  cursor: pointer;
+}
+
+.noPlayersMsgDiv {
+  width: 210px;
+  height: 35px;
+  margin: 15px;
+  border: 1.5px dotted red;
+  background-color: rgb(240, 171, 171);
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 1px 2px 3px 2px rgb(154, 152, 152);
   cursor: pointer;
 }
