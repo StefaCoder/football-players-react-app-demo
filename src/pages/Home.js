@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import PlayerDetails from "../components/PlayerDetails"
 import CreatePlayerForm from "../components/CreatePlayerForm"
 import Footer from '../components/Footer';
+import SearchBar from '../components/SearchBar'
 import PlayerDataContext from "../context/PlayerContext"
 require('dotenv').config()
 
@@ -32,6 +33,7 @@ const Home = () => {
     return (
         <div className="homeContainerWrapper">
             <PlayerDataContext.Provider value={fetchPlayers}>
+                <SearchBar dataObj={data}/>
                 <div className="homeContainer">
                     <div className="playersContainer">
                         {data && data.map(player =>
