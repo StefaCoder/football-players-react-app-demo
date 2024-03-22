@@ -8,7 +8,9 @@ const SearchBar = ({ dataObj }) => {
     const handleSearch = (e) => {
         const searchQuery = e.target.value
         setSearchText(searchQuery)
-        const filteredData = dataObj.filter((player) => (player.role).toLowerCase() === searchQuery)
+        const filteredData = dataObj.filter((player) => (player.role).toLowerCase() === searchQuery || (player.name).toLowerCase() === searchQuery 
+        || (player.lastName).toLowerCase() === searchQuery || (player.age).toString() === searchQuery)
+
         setFilteredDataObj(filteredData)
     }
 
@@ -19,7 +21,7 @@ const SearchBar = ({ dataObj }) => {
                 <input type="text"
                     value={searchText}
                     onChange={handleSearch}
-                    placeholder="Search player by role"
+                    placeholder="Search name, last name, or role"
                 />
             </div>
             {Object.keys(filteredDataObj).length > 0 && <div className="filteredDataWrapper">
